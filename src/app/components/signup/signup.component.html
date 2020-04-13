@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="text-center my-3">signup</h1>
+  <form #f='ngForm' (ngSubmit)='signup(f)'>
+
+
+        <label >Name</label>
+        <input #input1='ngModel' ngModel name="name" type="text" class="form-control" required>
+        <div class="alert alert-danger my-1" *ngIf="input1.invalid && input1.touched">name required</div>
+
+
+        <label >Email</label>
+        <input #email1='ngModel' ngModel name="email" type="email" class="form-control" required email >
+        <div class="alert alert-danger my-1" *ngIf="email1.errors?.required && email1.touched">email required</div>
+        <div class="alert alert-danger my-1" *ngIf="email1.errors?.email && email1.touched">match format</div>
+
+
+      <label >Password</label>
+      <input #pass1='ngModel' ngModel name="password" type="password" class="form-control" required minlength="6">
+      <div class="alert alert-danger my-1" *ngIf="pass1.errors?.required && pass1.touched">password required</div>
+      <div class="alert alert-danger my-1" *ngIf="pass1.errors?.minlength && pass1.touched">password more than 6 needed</div>
+
+
+      <label >Confirm Password</label>
+        <input #pass2='ngModel' ngModel name="passwordConfirm" type="password" class="form-control" required>
+        <div class="alert alert-danger my-1" *ngIf="pass2.invalid && pass2.touched">invalid</div>
+        <div class="alert alert-danger my-1" *ngIf="pass1.value!==pass2.value  && pass2.touched">not equal</div>
+
+      <label for="inputAddress">Address</label>
+      <input #address1='ngModel' ngModel name="address" type="text" class="form-control" required>
+      <div class="alert alert-danger my-1" *ngIf="address1.invalid && address1.touched">invalid</div>
+
+
+    <button type="submit" class="btn btn-primary my-3" [disabled]='f.invalid || pass1.value!==pass2.value  ' >Create Account</button>
+  </form>
+  <div class="alert alert-danger my-1" *ngIf="errors">{{errors}}</div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container-fluid my-3 py-4 d-flex justify-content-center w-100 " >
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Amount</th>
+        <th scope="col">TOtal</th>
+        <th scope="col">Option</th>
+        <th scope="col">Photo</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let shop of cartShopping; let i=index">
+      <tr>
+        <td>{{shop.name}}</td>
+        <td>{{shop.price |currency}}</td>
+        <td   ><input type="number" [(ngModel)]="shop.amount" ></td>
+        <td>{{shop.price * shop.amount |currency}}</td>
+        <td>
+          <button class="btn btn-primary" (click)='save(shop.amount,i)'>save</button>
+          <button class="btn btn-danger ml-2" (click)='delete(i)'>delete</button>
+        </td>
+        <td><img [src]='shop.photoUrl' height="60px" width="80px" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

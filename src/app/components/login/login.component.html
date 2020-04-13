@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="text-center my-3">Login</h1>
+  <form #f='ngForm' (ngSubmit)='login(f)'>
+
+        <label >Email</label>
+        <input #email1='ngModel' ngModel name="email" type="email" class="form-control" required email >
+        <div class="alert alert-danger my-1" *ngIf="email1.errors?.required && email1.touched">email required</div>
+        <div class="alert alert-danger my-1" *ngIf="email1.errors?.email && email1.touched">match format</div>
+      <label >Password</label>
+      <input #pass1='ngModel' ngModel name="password" type="password" class="form-control" required minlength="1">
+      <div class="alert alert-danger my-1" *ngIf="pass1.errors?.required && pass1.touched">password required</div>
+    <button type="submit" class="btn btn-primary my-3"  >Login</button>
+  </form>
+  <div class="alert alert-danger my-1" *ngIf="errors">{{errors}}</div>
+</div>

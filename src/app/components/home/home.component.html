@@ -1,0 +1,15 @@
+<div class="row container mx-auto text-center my-3">
+  <div class="card col-10 offset-1 col-sm-4 offset-sm-2 col-md-3 offset-md-0 "  *ngFor="let data of dataFromServer | async ;index as i">
+    <img [src]="data.photoUrl" class="card-img-top" alt="..." style="height: 250px">
+    <div class="card-body">
+      <h5 class="card-title">{{data.name}}</h5>
+      <p class="card-text">{{data.price | currency}}</p>
+      <p class="card-text">{{data.id}}</p>
+      <button class="btn btn-primary" (click)='addToCart(data.id,i)' *ngIf="i!==add">Add to Cart</button>
+      <div class="m-2" *ngIf="i===add">
+        <input type="number" #amount placeholder="enter amount (kg)">
+        <button class="btn btn-primary" (click)='buy(amount.value)'>Buy</button>
+       </div>
+    </div>
+  </div>
+</div>

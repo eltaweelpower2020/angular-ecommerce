@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "evident-airline-250809": {
+      "hosting": {
+        "understandEveryThing": [
+          "evident-airline-250809"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "evident-airline-250809"
+  }
+}
