@@ -7,12 +7,14 @@ import { AuthService } from "src/app/services/auth.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit  {
   errors:string;
   constructor(private router:Router,private afs:AuthService) { }
-
+  dataEmail:string ;
   ngOnInit(): void {
+    // console.log('onInit',this.dataEmail)
   }
+
   login(f){
     let data=f.value;
     this.afs.login(data.email,data.password)
@@ -20,7 +22,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/'])
     })
     .catch((error)=> this.errors = error.message)
-    console.log(data.email)
+    this.dataEmail=data.email
+    // console.log(this.dataEmail)
+    // console.log(data.email)
 
   }
 

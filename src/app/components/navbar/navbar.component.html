@@ -17,7 +17,7 @@
             <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active" *ngIf="isUser">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active" *ngIf="isUser">user</a>
+            <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active" *ngIf="isUser">{{emailAdress}}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!isUser">Login</a>

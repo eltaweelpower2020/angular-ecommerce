@@ -11,13 +11,14 @@ import {UserService}from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
 
   isUser:boolean=false;
+  emailAdress:string='';
 
 
   constructor(private us:AuthService,private router:Router,private userrr:UserService) { }
-
   ngOnInit(): void {
     // console.log (this.emaildataaa)
     this.us.userR.subscribe((userYa)=> {
+        this.emailAdress= userYa.email;
       if (userYa) {
         this.isUser=true
         this.us.userId=userYa.uid
